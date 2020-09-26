@@ -46,7 +46,8 @@ body {
     background-color: #b83b5e;
 }
 
-#title-text {
+#title-text1,
+#title-text2 {
     transition: all ease-in-out 0.2s;
     font-size: 2rem !important;
     font-family: Impact;
