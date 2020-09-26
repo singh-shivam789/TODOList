@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
         }
         // console.log(tasks);
         res.render('index', {
-            title: 'Todo App',
+            title: 'TODOList',
             tasks: tasks
         });
     });
