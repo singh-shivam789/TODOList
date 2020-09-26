@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/f3d3bcd31b.js" crossorigin="anonymous"></script>
+    <script src="/js/script.js" defer></script>
+    <script src="" defer></script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="upper">
+            <div id="title-box">
+                <h1 id="title-text">Welcome</h1>
+                <h1 id="star">⭐️</h1>
+
+            </div>
+            <div id="form-container">
+                <form action="/add-task" method="post">
+                    <div id="task-container">
+                        <span class="container-heading">
+                          &nbsp; DESCRIPTION
+                        </span>
+                        <textarea name="task" placeholder="&nbsp;What do you want to do?" required></textarea>
+                    </div>
+                    <div id="select-container">
+                        <span class="container-heading">
+                            &nbsp; CATEGORY
+                          </span>
+                        <select name="category" id="drop-down" required> 
+                            <option value="">Choose a category</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Work">Work</option>
+                            <option value="School">School</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div id="date-container">
+                        <span class="container-heading">
+                                &nbsp; DUE DATE
+                              </span>
+                        <input id="date-input" type="date" name="date">
+                    </div>
+
+                    <div id="btn-container">
+                        <button class="add-btn" type="submit"><i class="fas fa-plus"></i> <span id="button-text"> &nbsp; Add Task</span></button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <div id="lower">
+            <div id="list">
+                <ul>
+                    <form action="/delete-task/" method="GET">
+                        <% for(let i of tasks) {%>
+                            <li>
+                                <span id="checkbox-container">
+                                    <input id="check" type="checkbox" name="<%= i._id %>">
+                                </span>
+                                <div style="display: inline-block;">
+                                    <span id="list-task"><%= i.task %></span> <br>
+                                    <span id="list-date"><i class="fa fa-calendar" aria-hidden="true"></i><span id="task-date-value"> <%= i.date %></span></span>
+                                </div>
+                                <div class="list-category">
+                                    <p id="category-box-text">
+                                        <%= i.category %>
+                                    </p>
+                                </div>
+
+                            </li>
+                            <%} %>
+                                <button id="del-btn" type="submit"><i class="fas fa-trash"></i><span id="button-text" 
+                                    style="position: relative; top: -1px;">&nbsp;&nbsp; Delete Tasks</span></button>
+                    </form>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
